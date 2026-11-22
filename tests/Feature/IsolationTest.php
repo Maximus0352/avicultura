@@ -7,12 +7,12 @@ use App\Models\Exploitation;
 use App\Models\Intrant;
 use App\Models\Poulailler;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
 class IsolationTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     private Exploitation $exploitationA;
     private Exploitation $exploitationB;
