@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BandeElevage extends Model
 {
@@ -52,5 +53,30 @@ class BandeElevage extends Model
     public function estEnCours(): bool
     {
         return $this->statut === 'en_cours';
+    }
+
+        public function mortalites(): HasMany
+    {
+        return $this->hasMany(Mortalite::class, 'bande_id');
+    }
+
+    public function ventes(): HasMany
+    {
+        return $this->hasMany(Vente::class, 'bande_id');
+    }
+
+    public function pesees(): HasMany
+    {
+        return $this->hasMany(Pesee::class, 'bande_id');
+    }
+
+    public function activites(): HasMany
+    {
+        return $this->hasMany(Activite::class, 'bande_id');
+    }
+
+    public function distributions(): HasMany
+    {
+        return $this->hasMany(DistributionAliment::class, 'bande_id');
     }
 }
