@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\AppartientAUneExploitation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class Production extends Model
 {
     /** @use HasFactory<\Database\Factories\ProductionFactory> */
-    use HasFactory;
+    use HasFactory, AppartientAUneExploitation;
 
     protected $table = 'productions';
 
@@ -21,11 +21,6 @@ class Production extends Model
         'description',
         'unite_production',
     ];
-
-    public function exploitation(): BelongsTo
-    {
-        return $this->belongsTo(Exploitation::class);
-    }
 
     public function bandes(): HasMany
     {

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\AppartientAUneExploitation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class BandeElevage extends Model
 {
     /** @use HasFactory<\Database\Factories\BandeElevageFactory> */
-    use HasFactory;
+    use HasFactory, AppartientAUneExploitation;
 
     protected $table = 'bandes_elevage';
 
@@ -33,11 +34,6 @@ class BandeElevage extends Model
             'date_fin_prevue' => 'date',
             'date_fin_reelle' => 'date',
         ];
-    }
-
-    public function exploitation(): BelongsTo
-    {
-        return $this->belongsTo(Exploitation::class);
     }
 
     public function poulailler(): BelongsTo

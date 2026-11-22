@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\AppartientAUneExploitation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Intrant extends Model
 {
     /** @use HasFactory<\Database\Factories\IntrantFactory> */
-    use HasFactory;
+    use HasFactory, AppartientAUneExploitation;
     
     protected $table = 'intrants';
 
@@ -33,11 +33,6 @@ class Intrant extends Model
             'prix_unitaire' => 'decimal:2',
             'actif' => 'boolean',
         ];
-    }
-
-    public function exploitation(): BelongsTo
-    {
-        return $this->belongsTo(Exploitation::class);
     }
 
     public function mouvements(): HasMany
