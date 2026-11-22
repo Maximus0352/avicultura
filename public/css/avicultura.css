@@ -1,0 +1,59 @@
+:root {
+    --av-primary: #2F6B3A;
+    --av-primary-dark: #265830;
+    --av-accent: #E0A526;
+    --av-bg: #F6F4EE;
+    --av-text: #243026;
+    --av-danger: #C0392B;
+    --bs-primary: #2F6B3A;
+    --bs-primary-rgb: 47, 107, 58;
+    --bs-danger: #C0392B;
+    --bs-danger-rgb: 192, 57, 43;
+    --bs-body-bg: #F6F4EE;
+    --bs-body-color: #243026;
+    --bs-body-color-rgb: 36, 48, 38;
+    --bs-link-color: #2F6B3A;
+    --bs-link-color-rgb: 47, 107, 58;
+    --bs-link-hover-color: #265830;
+    --bs-link-hover-color-rgb: 38, 88, 48;
+}
+
+.btn-primary {
+    --bs-btn-bg: #2F6B3A;
+    --bs-btn-border-color: #2F6B3A;
+    --bs-btn-hover-bg: #265830;
+    --bs-btn-hover-border-color: #265830;
+    --bs-btn-active-bg: #1F4927;
+    --bs-btn-active-border-color: #1F4927;
+    --bs-btn-disabled-bg: #2F6B3A;
+    --bs-btn-disabled-border-color: #2F6B3A;
+}
+
+.form-control:focus {
+    border-color: var(--av-primary);
+    box-shadow: 0 0 0 0.25rem rgba(47, 107, 58, 0.25);
+}
+
+.card {
+    background-color: #FFFFFF;
+    border-color: rgba(36, 48, 38, 0.12);
+}
+
+.av-barre {
+    background-color: var(--av-primary);
+}
+
+.av-panneau-marque {
+    background-color: var(--av-primary);
+}
+
+.av-panneau-marque h1 {
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    border-bottom: 4px solid var(--av-accent);
+}
+
+.av-formulaire-connexion {
+    max-width: 380px;
+    padding: 0 1.5rem;
+}

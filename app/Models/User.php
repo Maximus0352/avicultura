@@ -60,4 +60,13 @@ class User extends Authenticatable
     {
         return $this->role === 'agent';
     }
+
+    public function libelleRole(): string
+    {
+        return match ($this->role) {
+            'admin' => 'Administrateur',
+            'responsable' => 'Responsable d\'exploitation',
+            'agent' => 'Agent',
+        };
+    }
 }
