@@ -7,8 +7,8 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    public function __invoke(): View
+    public function __invoke(Request $request): View
     {
-        return view('tableau-de-bord');
+        return view($request->user()->role . '.dashboard');
     }
 }

@@ -23,10 +23,13 @@
             </div>
         </div>
     </nav>
-    <main class="container-fluid py-4">
-        <x-flash />
-        @yield('contenu')
-    </main>
+        <div class="av-conteneur">
+        <x-sidebar />
+        <main class="av-contenu py-4 px-4">
+            <x-flash />
+            @yield('contenu')
+        </main>
+    </div>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>
