@@ -3,7 +3,7 @@
     $rubriques = match ($role) {
         'admin' => [
             ['Tableau de bord', 'dashboard'],
-            ['Exploitations', null],
+            ['Exploitations', 'exploitations.index'],
             ['Utilisateurs', null],
         ],
         'responsable' => [
@@ -38,7 +38,7 @@
         @foreach ($rubriques as [$libelle, $route])
             <li class="nav-item">
                 @if ($route)
-                    <a class="nav-link {{ request()->routeIs($route) ? 'active' : '' }}" href="{{ route($route) }}">{{ $libelle }}</a>
+                    <a class="nav-link {{ request()->routeIs($route, \Illuminate\Support\Str::before($route, '.') . '.*') ? 'active' : '' }}" href="{{ route($route) }}">{{ $libelle }}</a>
                 @else
                     <span class="nav-link disabled">{{ $libelle }}</span>
                 @endif
