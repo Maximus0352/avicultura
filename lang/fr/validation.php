@@ -32,5 +32,6 @@ return [
         'responsable_nom' => 'nom du responsable',
         'responsable_email' => 'e-mail du responsable',
         'responsable_password' => 'mot de passe du responsable',
+        'exploitation_id' => 'exploitation',
     ],
 ];

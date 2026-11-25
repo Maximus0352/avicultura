@@ -4,11 +4,12 @@
         'admin' => [
             ['Tableau de bord', 'dashboard'],
             ['Exploitations', 'exploitations.index'],
-            ['Utilisateurs', null],
+            ['Utilisateurs', 'utilisateurs.index'],
         ],
         'responsable' => [
             ['Tableau de bord', 'dashboard'],
-            ['Utilisateurs', null],
+            ['Mon exploitation', 'mon-exploitation.edit'],
+            ['Utilisateurs', 'utilisateurs.index'],
             ['Poulaillers', null],
             ['Productions', null],
             ['Bandes d\'élevage', null],
