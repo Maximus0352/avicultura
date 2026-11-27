@@ -33,5 +33,10 @@ return [
         'responsable_email' => 'e-mail du responsable',
         'responsable_password' => 'mot de passe du responsable',
         'exploitation_id' => 'exploitation',
+        'code' => 'code',
+        'capacite' => 'capacité',
+        'etat' => 'état',
+        'description' => 'description',
+        'unite_production' => 'unité de production',
     ],
 ];

@@ -4,6 +4,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExploitationController;
 use App\Http\Controllers\MonExploitationController;
+use App\Http\Controllers\PoulaillerController;
+use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +35,12 @@ Route::middleware(['auth', 'actif'])->group(function () {
     Route::middleware(['role:responsable', 'exploitation.active'])->group(function () {
         Route::get('/mon-exploitation', [MonExploitationController::class, 'edit'])->name('mon-exploitation.edit');
         Route::put('/mon-exploitation', [MonExploitationController::class, 'update'])->name('mon-exploitation.update');
+
+        Route::resource('poulaillers', PoulaillerController::class)
+            ->parameters(['poulaillers' => 'poulailler'])
+            ->except(['show', 'destroy']);
+        Route::resource('productions', ProductionController::class)
+            ->parameters(['productions' => 'production'])
+            ->except(['show', 'destroy']);
     });
 });
