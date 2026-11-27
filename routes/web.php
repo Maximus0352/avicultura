@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\BandeElevageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExploitationController;
 use App\Http\Controllers\MonExploitationController;
@@ -42,5 +43,17 @@ Route::middleware(['auth', 'actif'])->group(function () {
         Route::resource('productions', ProductionController::class)
             ->parameters(['productions' => 'production'])
             ->except(['show', 'destroy']);
+        Route::resource('bandes', BandeElevageController::class)
+            ->parameters(['bandes' => 'bande'])
+            ->only(['create', 'store', 'edit', 'update']);
+        Route::post('/bandes/{bande}/demarrer', [BandeElevageController::class, 'demarrer'])->name('bandes.demarrer');
+        Route::post('/bandes/{bande}/terminer', [BandeElevageController::class, 'terminer'])->name('bandes.terminer');
+        Route::post('/bandes/{bande}/annuler', [BandeElevageController::class, 'annuler'])->name('bandes.annuler');
+    });
+
+    Route::middleware(['role:responsable,agent', 'exploitation.active'])->group(function () {
+        Route::resource('bandes', BandeElevageController::class)
+            ->parameters(['bandes' => 'bande'])
+            ->only(['index', 'show']);
     });
 });

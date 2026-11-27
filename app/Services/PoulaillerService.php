@@ -10,6 +10,10 @@ use Illuminate\Validation\ValidationException;
 
 class PoulaillerService
 {
+    public function __construct(private EffectifService $effectifs)
+    {
+    }
+
     public function creer(User $acteur, array $donnees): Poulailler
     {
         return DB::transaction(function () use ($acteur, $donnees) {
@@ -25,11 +29,21 @@ class PoulaillerService
     public function modifier(Poulailler $poulailler, array $donnees): Poulailler
     {
         return DB::transaction(function () use ($poulailler, $donnees) {
-            $this->verifierCapacite($poulailler->exploitation_id, (int) $donnees['capacite'], $poulailler->id);
+            $verrouille = Poulailler::whereKey($poulailler->id)->lockForUpdate()->firstOrFail();
 
-            $poulailler->update($donnees);
+            $this->verifierCapacite($verrouille->exploitation_id, (int) $donnees['capacite'], $verrouille->id);
 
-            return $poulailler;
+            $present = $this->effectifs->presentDans($verrouille->id);
+
+            if ((int) $donnees['capacite'] < $present) {
+                throw ValidationException::withMessages([
+                    'capacite' => 'La capacité ne peut pas être inférieure à l\'effectif actuellement présent (' . $present . ').',
+                ]);
+            }
+
+            $verrouille->update($donnees);
+
+            return $verrouille;
         });
     }
 

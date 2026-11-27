@@ -22,6 +22,8 @@ return [
         'letters' => 'Le champ :attribute doit contenir au moins une lettre.',
         'numbers' => 'Le champ :attribute doit contenir au moins un chiffre.',
     ],
+    'after' => 'Le champ :attribute doit être une date postérieure à :date.',
+    'before_or_equal' => 'Le champ :attribute doit être une date antérieure ou égale à :date.',
     'attributes' => [
         'nom' => 'nom',
         'localisation' => 'localisation',
@@ -38,5 +40,11 @@ return [
         'etat' => 'état',
         'description' => 'description',
         'unite_production' => 'unité de production',
+        'poulailler_id' => 'poulailler',
+        'production_id' => 'production',
+        'date_debut' => 'date de début',
+        'date_fin_prevue' => 'date de fin prévue',
+        'date_fin_reelle' => 'date de fin réelle',
+        'effectif_initial' => 'effectif initial',
     ],
 ];

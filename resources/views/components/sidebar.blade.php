@@ -12,7 +12,7 @@
             ['Utilisateurs', 'utilisateurs.index'],
             ['Poulaillers', 'poulaillers.index'],
             ['Productions', 'productions.index'],
-            ['Bandes d\'élevage', null],
+            ['Bandes d\'élevage', 'bandes.index'],
             ['Intrants et stocks', null],
             ['Alimentation', null],
             ['Activités', null],
@@ -24,7 +24,7 @@
         ],
         'agent' => [
             ['Tableau de bord', 'dashboard'],
-            ['Bandes d\'élevage', null],
+            ['Bandes d\'élevage', 'bandes.index'],
             ['Alimentation', null],
             ['Activités', null],
             ['Mortalités', null],
